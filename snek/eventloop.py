@@ -1,48 +1,9 @@
 
+
 import pygame
 import time
 import random
 
-# Initialize pygame
-pygame.init()
-
-# Colors
-white = (255, 255, 255)
-black = (0, 0, 0)
-red   = (213, 50, 80)
-green = (0, 255, 0)
-blue  = (50, 153, 213)
-
-# Screen size
-dis_width = 800
-dis_height = 600
-
-# Create the game window
-dis = pygame.display.set_mode((dis_width, dis_height))
-pygame.display.set_caption('Snake Game')
-
-# Clock to control the speed of the snake
-clock = pygame.time.Clock()
-
-# Snake settings
-snake_block = 10
-snake_speed = 50
-
-font_style = pygame.font.SysFont("bahnschrift", 25)
-
-
-# Function to display the score
-def Your_score(score):
-
-    value = font_style.render("Your Score: " + str(score), True, white)
-    dis.blit(value, [0, 0])
-
-
-# Function to draw the snake
-def our_snake(snake_block, snake_list):
-
-    for x in snake_list:
-        pygame.draw.rect(dis, green, [x[0], x[1], snake_block, snake_block])
 
 
 # Game loop function
@@ -51,17 +12,11 @@ def gameLoop():
     game_over  = False
     game_close = False
 
-    x1 = dis_width / 2
-    y1 = dis_height / 2
+    x1 = app.display_width  / 2
+    y1 = app.display_height / 2
 
     x1_change = 0
     y1_change = 0
-
-    snake_List      = list()
-    Length_of_snake = 1
-
-    foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
-    foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0
 
     while not game_over:
 
@@ -146,10 +101,5 @@ def gameLoop():
     pygame.quit()
 
     quit()
-
-
-# Start the game
-if __name__ == "__main__":
-    gameLoop()
 
 

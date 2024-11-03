@@ -1,30 +1,21 @@
 
 
-import pygame
-import time
 import random
 
 
-class Snake:
+
+class Apple()
+
+    def __init__(self, app, blocksize):
+
+        self._application = app
+        self._blocksize   = blocksize
 
 
-    def __init__(self, blocksize, speed, initial_length=1):
+    def spawn(self):
 
-        self._blocksize = blocksize
-        self._speed     = speed
-
-        self._body      = list()
-        self._length    = initial_length
-
-
-    def draw(self):
-    
-        for block in self._body:
-            pygame.draw.rect(self._application.display, green, [x[0], x[1], snake_block, snake_block])
-
-
-
-
+        self._x = round(random.randrange(0, self._app.dis_width  - snake_block) / 10.0) * 10.0
+        self._y = round(random.randrange(0, self._app.dis_height - snake_block) / 10.0) * 10.0
 
 
 

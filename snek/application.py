@@ -5,26 +5,44 @@ import time
 import random
 
 
-class Snake:
-
-
-    def __init__(self, blocksize, speed, initial_length=1):
-
-        self._blocksize = blocksize
-        self._speed     = speed
-
-        self._body      = list()
-        self._length    = initial_length
-
-
-    def draw(self):
+# Colors
+white = (255, 255, 255)
+black = (0  , 0  , 0  )
+red   = (213, 50 , 80 )
+green = (0  , 255, 0  )
+blue  = (50 , 153, 213)
     
-        for block in self._body:
-            pygame.draw.rect(self._application.display, green, [x[0], x[1], snake_block, snake_block])
+
+# Screen size
+display_width  = 800
+display_height = 600
 
 
 
 
+class Application:
+
+    @property
+    def display(self):
+        return self._display
+
+
+    def __init__(self, display_width, display_height):
+
+        pygame.init()
+    
+        self._display = pygame.display.set_mode((display_width, display_height))
+        self._clock   = pygame.time.Clock()
+        self._font    = pygame.font.SysFont("bahnschrift", 25)
+
+        pygame.display.set_caption('Snake Game')
+
+
+    def display_score(score):
+    
+        score_message = font_style.render("Your Score: " + str(score), True, white)
+
+        self._display.blit(score_message, [0, 0])
 
 
 
